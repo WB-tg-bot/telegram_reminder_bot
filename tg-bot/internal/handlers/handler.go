@@ -48,7 +48,10 @@ func (h *HandlerImpl) HandleUpdate(botService *bot_service.BotService, update tg
 }
 
 func (h *HandlerImpl) HandleMessage(botService *bot_service.BotService, message *tgbotapi.Message) {
-	if message.Text == "Добавить напоминание" {
+	if message.Text == "/start" {
+		utils.DeleteMessage(botService.Bot.(*bot.BotImpl).BotAPI, message)
+		botService.HandleStart(message.Chat)
+	} else if message.Text == "Добавить напоминание" {
 		utils.DeleteMessage(botService.Bot.(*bot.BotImpl).BotAPI, message)
 		go botService.CreateReminder(message)
 		flags[message.From.ID] = true

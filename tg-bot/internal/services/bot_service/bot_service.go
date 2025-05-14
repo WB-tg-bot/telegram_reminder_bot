@@ -26,6 +26,15 @@ var (
 	botMessage = make(map[int64]tgbotapi.Message)
 )
 
+type BotServiceInterface interface {
+	CreateReminder(msg *tgbotapi.Message)
+	UpdateReminder(msg *tgbotapi.Message) bool
+	HandleCallbackQuery(callback *tgbotapi.CallbackQuery)
+	HandleCommand(message *tgbotapi.Message, task *tgbotapi.Message)
+	HandleMyChatMemberUpdate(myChatMember *tgbotapi.ChatMemberUpdated)
+	HandleStart(chat *tgbotapi.Chat)
+}
+
 type BotService struct {
 	Bot bot.Bot
 }
@@ -253,33 +262,42 @@ func (b *BotService) HandleMyChatMemberUpdate(myChatMember *tgbotapi.ChatMemberU
 	if myChatMember.NewChatMember.User.ID == b.Bot.(*bot.BotImpl).Self.ID {
 		switch myChatMember.NewChatMember.Status {
 		case "member":
-			messageText := fmt.Sprintf("Привет!"+
-				"\nЯ @%s — бот планировщик для ваших задач."+
-				"\n\n"+
-				"Что я могу?\n\nКоманда @%s ctrl [число][время]:"+
-				"\n\nВаше предыдущее сообщение сохраняется как #Задача#."+
-				"\nЯ напомню вам о ней через указанное время."+
-				"\n\n[число] - интервал (целое число)"+
-				"\n[время] - продолжительность \n"+
-				"\n• s - секунды, \n• h - часы, \n• d - дни, \n• w - недели, \n• m - месяцы",
-				b.Bot.(*bot.BotImpl).Self.UserName, b.Bot.(*bot.BotImpl).Self.UserName)
-
-			msg := tgbotapi.NewMessage(myChatMember.Chat.ID, messageText)
-			_, err := b.Bot.Send(msg)
-			if err != nil {
-				log.Println(err)
-			}
-
-			msg = tgbotapi.NewMessage(myChatMember.Chat.ID, "Пожалуйста, выберите опцию:")
-			msg.ReplyMarkup = services.Menu
-			_, err = b.Bot.Send(msg)
-			if err != nil {
-				log.Println(err)
-			}
+			b.HandleStart(&myChatMember.Chat)
 
 		default:
 			return
 		}
+	}
+}
+
+func (b *BotService) HandleStart(chat *tgbotapi.Chat) {
+
+	messageText := fmt.Sprintf("Привет!"+
+		"\nЯ @%s — бот планировщик для ваших задач."+
+		"\n\n"+
+		"Что я могу?\n\nКоманда @%s ctrl [продолжительность][ед. времени]:"+
+		"\n\nВаше предыдущее сообщение сохраняется как #Задача#."+
+		"\nЯ напомню вам о ней через указанное время."+
+		"\n\n[продолжительность] - интервал (целое число)"+
+		"\n[ед. времени]:"+
+		"\n• s - секунды, \n• h - часы, \n• d - дни, \n• w - недели, \n• m - месяцы\n"+
+		"\nПример:"+
+		"\n@%s ctrl 2d"+
+		"\nЯ создам напоминание и отправлю его через 2 дня\n",
+		b.Bot.(*bot.BotImpl).Self.UserName, b.Bot.(*bot.BotImpl).Self.UserName, b.Bot.(*bot.BotImpl).Self.UserName)
+
+	msg := tgbotapi.NewMessage(chat.ID, messageText)
+	_, err := b.Bot.Send(msg)
+	if err != nil {
+		log.Println(err)
+	}
+
+	msg = tgbotapi.NewMessage(chat.ID, "Пожалуйста, выберите опцию:")
+	msg.ReplyMarkup = services.Menu
+	_, err = b.Bot.Send(msg)
+	if err != nil {
+		log.Println(err)
+
 	}
 }
 

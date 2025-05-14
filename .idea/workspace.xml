@@ -5,8 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4028e366-0f0c-40e1-ade2-2878ba4a6b8a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/tg-bot/internal/handlers/handler_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tg-bot/internal/services/bot_service/bot_service_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tg-bot/internal/services/mocks/bot_service_mock.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_10_2024_7_32_[Changes]/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_10_2024_7_32_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_10_2024_7_32__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tg-bot/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/tg-bot/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/1259" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/1259" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/16395" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/16395" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/16396" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/16396" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/16402" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/16402" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/2619" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/2619" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/base/5/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/global/2964" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/global/2964" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/global/pg_control" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/global/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/pg_stat/pgstat.stat" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/pg_stat/pgstat.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/pg_wal/000000010000000000000001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/.database/postgres/data/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.database/postgres/data/pg_xact/0000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/storage/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/storage/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/handler/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/handler/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/repository/postgres_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/repository/postgres_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg-bot/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/tg-bot/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg-bot/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/tg-bot/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg-bot/internal/handlers/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/tg-bot/internal/handlers/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg-bot/internal/services/bot_service/bot_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/tg-bot/internal/services/bot_service/bot_service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +43,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ktuty&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/WB-tg-bot/telegram_reminder_bot.github.git&quot;,
+    &quot;accountId&quot;: &quot;23afc40f-0ce0-4d6b-a839-657258a5dbec&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -27,22 +64,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Go Build.go build tg-bot/cmd.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "develop",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "C:/Users/LK10725/go/src/Anastasia/telegram_reminder_bot.github/storage",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Go Build.go build tg-bot/cmd.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/GolandProjects/github.com/TeamDev/telegram_reminder_bot.github&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\LK10725\go\src\Anastasia\telegram_reminder_bot.github\tg-bot" />
