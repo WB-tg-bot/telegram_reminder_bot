@@ -1,93 +1,137 @@
-# telegram_reminder_bot
+<div align="center">
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Tektur&pause=1000&color=DC00F7&center=true&width=435&lines=TELEGRAM+REMINDER+BOT" alt="Typing SVG" /></a>
+</div>
+
+# О проекте
+
+Telegram Reminder Bot — бот для создания напоминаний в чатах. Он реализован полностью на Golang и использует многопоточность для работы с несколькими задачами одновременно.
+
+# Функционал бота
+
+- **Командный функционал**: По команде `@имя_бота ctrl NM`, где N - интервал, M - единица времени, бот ставит напоминание для данного пользователя и отправляет его в чат по истечении времени. Удобно для пользователей веб-версии.
+
+- **Графический функционал**: По нажатию на кнопку «Добавить напоминание» бот последовательно собирает необходимую информацию (текст напоминания, интервал, единица времени). Удобно для пользователей мобильной версии.
+
+# Технологии
+
+- Golang
+- PostgreSQL
+- REST API
+- Docker
+- TgBotApi
+
+# Установка бота
+
+1. **Клонирование репозитория**:
+   ```sh
+   git clone https://github.com/WB-tg-bot/telegram_reminder_bot.git
+
+# tg-bot
+
+2. **Установка зависимостей в директории tg-bot**:
+   ```sh
+   go mod download
+   go mod tidy
+
+3. **Проверка и изменение файлов конфигурации**:
+  * Файл .env:
+     ```sh
+    TELEGRAM_BOT_TOKEN=your_Tg-bot_TOKEN
+
+  * Файл configs/config.yml:
+     ```sh
+    url_create_task: "http://telegram-reminder-bot:8000/create-task"
+    url_get_task: "http://telegram-reminder-bot:8000/tasks"
+
+# Server
+
+4. **Установка зависимостей в директории storage**:
+   ```sh
+   go mod download
+   go mod tidy
+
+5. **Проверка и изменение файлов конфигурации**:
+  * Файл .env:
+     ```sh
+     TELEGRAM_BOT_TOKEN=your_Tg-bot_TOKEN
+     DB_PASSWORD=your_DB_PASS
+
+  * Файл configs/config.yml:
+     ```sh
+     port: "8000"
+
+    db:
+      username: "postgres"
+      host: "db"
+      port: "5432"
+      dbname: "postgres"
+      sslmode: "disable"
+      timezone: "Europe/Moscow"
+
+6. **Для Windows 10**:
+  * Установка Scoop:
+     ```sh
+      irm get.scoop.sh -outfile 'install.ps1'
+      .\install.ps1 -RunAsAdmin
+
+  * Установка Migrate:
+     ```sh
+     scoop install migrate
+
+  * Установка Make:
+     ```sh
+     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+     choco install make
+
+
+7. **Разворачиваем приложение в Docker**:
+   ```sh
+   make run
+
+# Настрока и запуск проекта локально
+
+1. **Проверка и изменение файлов конфигурации tg-bot**:
+
+  * Файл configs/config.yml:
+     ```sh
+     url_create_task: "http://localhost:8000/create-task"
+     url_get_task: "http://localhost:8000/tasks"
+
+2. **Проверка и изменение файлов конфигурации сервера**:
+  * Файл configs/config.yml:
+    ```sh
+    host: "localhost"
+    port: "5436"
+
+4. **Инициализация и миграция базы данных**:
+   ```sh
+   make db_init
+   make db_migrate
+
+5. **Запуск сервера**:
+   ```sh
+   go run cmd/main.go
+
+6. **Запуск Telegram-бота**:
+   ```sh
+   cd ../tg-bot
+   go run cmd/main.go
+
+Приложение готово к использованию
 
 
 
-## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
 
-## Add your files
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
 
-```
-cd existing_repo
-git remote add origin http://10.0.2.15:8000/root/telegram_reminder_bot.git
-git branch -M main
-git push -uf origin main
-```
 
-## Integrate with your tools
 
-- [ ] [Set up project integrations](http://10.0.2.15:8000/root/telegram_reminder_bot/-/settings/integrations)
 
-## Collaborate with your team
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
 
-## Test and Deploy
 
-Use the built-in continuous integration in GitLab.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
 
-***
 
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
